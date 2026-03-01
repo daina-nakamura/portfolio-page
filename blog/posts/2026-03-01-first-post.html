@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>事業投資の現場で大切にしていること | Blog | Dyna NAKAMURA</title>
+  <meta name="description" content="大手総合商社の事業投資部門で培ってきた経験から、Complexity into Clarity の考え方と実践について。" />
+  <meta property="og:title" content="事業投資の現場で大切にしていること" />
+  <meta property="og:description" content="案件の複雑さをシンプルな価値に変換するために普段意識していること。" />
+  <meta property="og:image" content="../../photo.jpg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #f4f4fb;
+      --surface:  #ffffff;
+      --surface2: #edeef8;
+      --accent:   #5b52e8;
+      --accent2:  #7c6af0;
+      --text:     #1a1a2e;
+      --text-body:#3a3a52;
+      --muted:    #6b6b88;
+      --border:   rgba(91,82,232,.16);
+      --radius:   12px;
+      --ff:       'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--ff); line-height: 1.7; overflow-x: hidden; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(244,244,251,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 1rem; font-weight: 700; letter-spacing: .08em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .82rem; color: var(--muted); }
+    .nav-breadcrumb a { color: var(--muted); }
+    .nav-breadcrumb a:hover { color: var(--text); text-decoration: none; }
+    .nav-breadcrumb .sep { opacity: .4; }
+    .nav-breadcrumb .current { color: var(--text); font-weight: 500; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ─── Article Layout ─── */
+    .article-wrap { max-width: 680px; margin: 0 auto; padding: 7rem 2rem 6rem; }
+
+    /* ─── Article Header ─── */
+    .article-header { margin-bottom: 2.8rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-bottom: 1.3rem; }
+    .article-date { font-size: .78rem; color: var(--muted); letter-spacing: .05em; }
+    .article-category {
+      font-size: .68rem; letter-spacing: .08em; font-weight: 600;
+      background: rgba(91,82,232,.1); color: var(--accent);
+      border: 1px solid var(--border); padding: .12rem .65rem; border-radius: 20px;
+    }
+    .article-reading-time { font-size: .75rem; color: var(--muted); }
+    .article-title {
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      font-weight: 800; line-height: 1.25; letter-spacing: -.02em;
+      color: var(--text); margin-bottom: 1.3rem;
+    }
+    .article-lead {
+      font-size: 1.05rem; color: var(--muted); line-height: 1.9;
+      border-left: 3px solid var(--accent);
+      padding-left: 1.2rem;
+    }
+
+    /* ─── Article Body ─── */
+    .article-body { color: var(--text-body); }
+    .article-body p { font-size: 1.02rem; line-height: 2; margin-bottom: 1.6rem; }
+    .article-body h2 {
+      font-size: 1.3rem; font-weight: 700; color: var(--text);
+      margin: 3rem 0 1rem; letter-spacing: -.01em;
+      padding-bottom: .5rem; border-bottom: 1px solid var(--border);
+    }
+    .article-body h3 { font-size: 1.08rem; font-weight: 600; color: var(--text); margin: 2rem 0 .7rem; }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      padding: .9rem 1.4rem; color: var(--muted); font-style: italic;
+      margin: 1.8rem 0; background: var(--surface2); border-radius: 0 8px 8px 0;
+    }
+    .article-body blockquote p { margin-bottom: 0; font-size: .98rem; }
+    .article-body ul, .article-body ol { padding-left: 1.6rem; margin: 1rem 0 1.6rem; }
+    .article-body li { line-height: 1.85; margin-bottom: .5rem; font-size: 1.02rem; }
+    .article-body strong { color: var(--text); font-weight: 600; }
+
+    /* ─── Author ─── */
+    .article-author {
+      display: flex; align-items: center; gap: 1.2rem;
+      margin-top: 3rem; padding: 1.4rem 1.6rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .author-photo { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid var(--border); }
+    .author-name { font-weight: 700; font-size: .95rem; margin-bottom: .2rem; color: var(--text); }
+    .author-role { font-size: .78rem; color: var(--muted); }
+
+    /* ─── Footer nav ─── */
+    .article-footer-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);
+      font-size: .85rem;
+    }
+    .article-footer-nav a { color: var(--accent); font-weight: 500; }
+
+    /* ─── Page Footer ─── */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      text-align: center; padding: 2rem; font-size: .78rem; color: var(--muted);
+    }
+    footer a { color: var(--accent); }
+
+    /* ─── Progress bar ─── */
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      z-index: 200; transition: width .1s linear;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.4rem; }
+      .article-wrap { padding: 6rem 1.4rem 4rem; }
+      .article-title { font-size: 1.55rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a href="../../index.html" class="nav-logo">D.N.</a>
+  <div class="nav-breadcrumb">
+    <a href="../../index.html">Portfolio</a>
+    <span class="sep">/</span>
+    <a href="../index.html">Blog</a>
+    <span class="sep">/</span>
+    <span class="current">事業投資の現場で大切にしていること</span>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <article>
+
+    <header class="article-header">
+      <div class="article-meta">
+        <span class="article-date">2026年3月1日</span>
+        <span class="article-category">投資</span>
+        <span class="article-reading-time">約 5 分</span>
+      </div>
+      <h1 class="article-title">事業投資の現場で大切にしていること</h1>
+      <p class="article-lead">
+        大手総合商社の事業投資部門で日々向き合う「複雑さ」。新規投資案件には財務・法務・税務・事業戦略が絡み合い、関係者も多岐にわたる。その中で私が軸に置いているのは、<strong>「Complexity into Clarity（複雑さをシンプルな価値に変換する）」</strong>という考え方だ。
+      </p>
+    </header>
+
+    <div class="article-body">
+
+      <h2>複雑さを整理することが、価値創造の出発点</h2>
+      <p>
+        事業投資の案件は、その性質上、常に複数の論点が同時並行で動く。バリュエーションの妥当性、法的リスク、税務ストラクチャー、PMI後の経営体制、マイノリティ株主との関係整理——これらを個別に処理するだけでは不十分で、統合的に理解した上で「どこに本質的なリスクがあるか」「どこに価値の源泉があるか」を明確にすることが求められる。
+      </p>
+      <p>
+        複雑な案件を「複雑なまま」進めようとすると、意思決定が遅れ、関係者間の認識がずれ、最終的には良い投資機会を逃す、あるいは不必要なリスクを抱えることになる。だからこそ、論点を構造化して整理し、シンプルな言語で関係者に伝えることが、何よりも大切だと考えている。
+      </p>
+
+      <blockquote>
+        <p>「この案件のキーイシューは3つです」と言い切れるかどうかが、勝負所だと思っている。</p>
+      </blockquote>
+
+      <h2>財務・法務・税務を「ひとつの言語」で語る</h2>
+      <p>
+        投資案件において、財務・法務・税務の各分野の専門家はそれぞれの視点で意見を出す。それ自体は正しい。ただ、それを統合して「では最終的にどういう判断をすべきか」に落とし込むのは、専門家個々人の仕事ではなく、案件を束ねる立場の人間の仕事だ。
+      </p>
+      <p>
+        私が意識しているのは、どの分野の話をしているときも<strong>「投資としての合理性」という軸を忘れない</strong>ことだ。法的リスクが高くても、それを許容できるリターンがあるなら投資判断として成立しうる。税務コストが発生しても、ストラクチャー変更のコストと比較して割安なら許容できる。各論点を「投資判断にどう影響するか」という観点で統合することが、財務・法務・税務を横断的に扱う上での基本姿勢だと思っている。
+      </p>
+
+      <h2>スピードと合理性を両立させる</h2>
+      <p>
+        良い投資案件は、他社も狙っている。機関投資家やPEファンドが同じ案件をリストアップしていることも珍しくない。そうした競争環境では、<strong>意思決定のスピードが実力のひとつ</strong>になる。
+      </p>
+      <p>
+        ただ、スピードを優先するあまり合理性を失っては本末転倒だ。私が大切にしているのは、「判断に必要な情報が何か」を早期に見極め、それだけに集中することだ。完璧な情報を揃えてから判断するのではなく、「この時点でこの情報があれば合理的な判断ができる」というラインを見極める力が、実務では問われる。
+      </p>
+      <ul>
+        <li>論点を早期に絞り込み、必要な情報だけを優先的に取得する</li>
+        <li>「わからないこと」と「判断に影響しないこと」を区別する</li>
+        <li>意思決定の粒度を場面に応じて変える（全体感 → 詳細 → 全体感）</li>
+      </ul>
+
+      <h2>おわりに</h2>
+      <p>
+        事業投資の仕事は、毎回が新しいケーススタディだ。同じ業界・同じスキームでも、経営者の価値観、相手方の事情、市場環境によって正解が変わる。だからこそ面白い。
+      </p>
+      <p>
+        「Complexity into Clarity」——これは単なるキャッチコピーではなく、私が日々の仕事の中で磨いてきた実践的な姿勢だ。このブログでは、投資・戦略・組織に関する考察を少しずつ発信していきたいと思う。
+      </p>
+
+    </div>
+
+    <div class="article-author">
+      <img src="../../photo.jpg" alt="Dyna NAKAMURA" class="author-photo">
+      <div>
+        <div class="author-name">中村 大和 / Dyna NAKAMURA</div>
+        <div class="author-role">Strategic Investor｜大手総合商社 事業投資部門｜USCPA</div>
+      </div>
+    </div>
+
+    <div class="article-footer-nav">
+      <a href="../index.html">← ブログ一覧に戻る</a>
+      <a href="../../index.html">Portfolio →</a>
+    </div>
+
+  </article>
+</div>
+
+<footer>
+  <p><a href="../index.html">← Blog</a> &nbsp;|&nbsp; © 2026 Dyna NAKAMURA</p>
+</footer>
+
+<script>
+  // 読書進捗バー
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const percent = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+    bar.style.width = percent + '%';
+  });
+</script>
+</body>
+</html>

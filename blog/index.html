@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Dyna NAKAMURA</title>
+  <meta name="description" content="中村大和（Dyna NAKAMURA）のブログ。事業投資・M&A・戦略・組織に関する考察を発信。" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #f4f4fb;
+      --surface: #ffffff;
+      --surface2:#edeef8;
+      --accent:  #5b52e8;
+      --accent2: #7c6af0;
+      --text:    #1a1a2e;
+      --muted:   #6b6b88;
+      --border:  rgba(91,82,232,.16);
+      --radius:  12px;
+      --ff:      'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--ff); line-height: 1.7; overflow-x: hidden; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(244,244,251,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 1rem; font-weight: 700; letter-spacing: .08em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .82rem; color: var(--muted); }
+    .nav-breadcrumb a { color: var(--muted); }
+    .nav-breadcrumb a:hover { color: var(--text); text-decoration: none; }
+    .nav-breadcrumb .sep { opacity: .4; }
+    .nav-breadcrumb .current { color: var(--text); font-weight: 500; }
+
+    /* ─── Blog Hero ─── */
+    .blog-hero {
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(91,82,232,.07) 0%, transparent 70%);
+    }
+    .blog-hero-label {
+      font-size: .72rem; letter-spacing: .25em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: .8rem; position: relative;
+    }
+    .blog-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      font-weight: 800; letter-spacing: -.02em;
+      background: linear-gradient(135deg, var(--text) 30%, var(--accent) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: .8rem; position: relative;
+    }
+    .blog-hero p { color: var(--muted); font-size: .95rem; position: relative; }
+
+    /* ─── Post List ─── */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+    main { padding: 4rem 0 6rem; }
+    .section-label {
+      font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;
+    }
+    .post-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .post-card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .post-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(91,82,232,.1);
+      text-decoration: none;
+    }
+    .post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin-bottom: .8rem; }
+    .post-date { font-size: .76rem; color: var(--muted); letter-spacing: .05em; }
+    .post-category {
+      font-size: .68rem; letter-spacing: .08em; font-weight: 600;
+      background: rgba(91,82,232,.1); color: var(--accent);
+      border: 1px solid var(--border);
+      padding: .12rem .65rem; border-radius: 20px;
+    }
+    .post-reading-time { font-size: .74rem; color: var(--muted); margin-left: auto; }
+    .post-title { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: .55rem; line-height: 1.4; }
+    .post-excerpt {
+      color: var(--muted); font-size: .9rem; line-height: 1.8; margin-bottom: 1rem;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .post-link { font-size: .8rem; font-weight: 600; color: var(--accent); letter-spacing: .04em; }
+
+    /* Coming Soon */
+    .post-card.placeholder {
+      opacity: .55; cursor: default; pointer-events: none;
+      border-style: dashed;
+    }
+    .post-card.placeholder .post-title { color: var(--muted); }
+
+    /* ─── Fade in ─── */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      text-align: center; padding: 2rem;
+      font-size: .78rem; color: var(--muted);
+    }
+    footer a { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.4rem; }
+      .blog-hero { padding: 7rem 1.4rem 3rem; }
+      .container { padding: 0 1.4rem; }
+      .post-card { padding: 1.4rem; }
+      .post-reading-time { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">D.N.</a>
+  <div class="nav-breadcrumb">
+    <a href="../index.html">Portfolio</a>
+    <span class="sep">/</span>
+    <span class="current">Blog</span>
+  </div>
+</nav>
+
+<header class="blog-hero">
+  <div class="blog-hero-label">Writing</div>
+  <h1>Blog</h1>
+  <p>事業投資・M&A・戦略・組織に関する考察</p>
+</header>
+
+<main>
+  <div class="container">
+    <div class="section-label">All Posts</div>
+    <div class="post-list">
+
+      <!-- ─ 記事はここに追加していく ─ -->
+
+      <a class="post-card fade-in" href="posts/2026-03-01-first-post.html">
+        <div class="post-meta">
+          <span class="post-date">2026.03.01</span>
+          <span class="post-category">投資</span>
+          <span class="post-reading-time">約 5 分</span>
+        </div>
+        <div class="post-title">事業投資の現場で大切にしていること</div>
+        <p class="post-excerpt">大手総合商社の事業投資部門で培ってきた経験から、案件の複雑さをシンプルな価値に変換するために普段意識していること、大切にしていることをまとめました。</p>
+        <span class="post-link">続きを読む →</span>
+      </a>
+
+      <div class="post-card placeholder fade-in">
+        <div class="post-meta">
+          <span class="post-date">Coming Soon</span>
+          <span class="post-category">M&A</span>
+        </div>
+        <div class="post-title">次の記事を準備中...</div>
+      </div>
+
+      <div class="post-card placeholder fade-in">
+        <div class="post-meta">
+          <span class="post-date">Coming Soon</span>
+          <span class="post-category">戦略</span>
+        </div>
+        <div class="post-title">次の記事を準備中...</div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p><a href="../index.html">← ポートフォリオに戻る</a> &nbsp;|&nbsp; © 2026 Dyna NAKAMURA</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
