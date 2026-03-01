@@ -3,7 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dyna NAKAMURA – Portfolio</title>
+  <title>Dyna NAKAMURA – Strategic Investor</title>
+  <meta name="description" content="中村大和（Dyna NAKAMURA）のポートフォリオ。大手総合商社の事業投資部門にて、国内外の事業投資・M&A・経営支援に従事するStrategic Investor。USCPA保有。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://daina-nakamura.github.io/portfolio-page/" />
+  <meta property="og:title" content="Dyna NAKAMURA – Strategic Investor" />
+  <meta property="og:description" content="大手総合商社の事業投資部門にて、国内外の事業投資・M&A・経営支援に従事。財務・税務・法務・事業戦略を横断的に統合し、合理的かつ迅速な意思決定に繋げる。" />
+  <meta property="og:image" content="https://daina-nakamura.github.io/portfolio-page/photo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dyna NAKAMURA – Strategic Investor" />
+  <meta name="twitter:description" content="大手総合商社の事業投資部門にて、国内外の事業投資・M&A・経営支援に従事。" />
+  <meta name="twitter:image" content="https://daina-nakamura.github.io/portfolio-page/photo.jpg" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235b52e8'/><text x='50' y='68' font-family='Arial' font-size='46' font-weight='bold' fill='white' text-anchor='middle'>DN</text></svg>" />
   <style>
     /* ─── Reset & Base ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -306,6 +317,13 @@
       font-size: .78rem; color: var(--muted);
     }
 
+    /* ─── Credential subsections ─── */
+    .cred-subsection + .cred-subsection { margin-top: 2rem; }
+    .cred-subsection-label {
+      font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted); font-weight: 600; margin-bottom: .8rem;
+    }
+
     /* ─── Responsive ─── */
     @media (max-width: 640px) {
       nav { padding: 1rem 1.4rem; }
@@ -355,7 +373,7 @@
     <a href="#contact" class="btn reveal" style="transition-delay:.35s">Get in touch</a>
   </div>
 
-  <div class="scroll-hint">
+  <div class="scroll-hint" aria-hidden="true">
     <span>SCROLL</span>
     <div class="line"></div>
   </div>
@@ -366,17 +384,16 @@
   <div class="container">
     <div class="photo-wrap">
       <div class="photo-frame reveal-left">
-        <img src="photo.jpg" alt="Dyna NAKAMURA">
+        <img src="photo.jpg" alt="Dyna NAKAMURA" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="photo-text reveal-right">
         <div class="section-label">Profile</div>
         <h3>中村 大和 / Dyna NAKAMURA</h3>
         <p>
-          大手総合商社の事業投資部門に所属。<br>
-          国内外の投資案件に最初期から関与し、<br>
-          ディール完結まで一気通貫で担当。<br><br>
-          財務・税務・法務・事業戦略を横断的に統合し、<br>
-          合理的かつ迅速な意思決定を支援する。
+          「複雑な案件をシンプルな価値に変換する」をモットーに、<br>
+          事業投資の川上から川下まで一貫して担当。<br><br>
+          数字・法律・戦略をひとつの言語で語り、<br>
+          合理的な意思決定を高速で実現する。
         </p>
       </div>
     </div>
@@ -407,33 +424,41 @@
     <div class="section-label reveal">Credentials</div>
     <h2 class="section-title reveal">資格・スキル</h2>
     <div class="divider reveal"></div>
-    <div class="cred-grid">
-      <div class="cred-item reveal" style="transition-delay:.05s">
-        <div class="cred-icon">🇺🇸</div>
-        <div>
-          <div class="cred-name">USCPA</div>
-          <div class="cred-sub">米国公認会計士</div>
+    <div class="cred-subsection reveal">
+      <div class="cred-subsection-label">資格</div>
+      <div class="cred-grid">
+        <div class="cred-item" style="transition-delay:.05s">
+          <div class="cred-icon">🇺🇸</div>
+          <div>
+            <div class="cred-name">USCPA</div>
+            <div class="cred-sub">米国公認会計士</div>
+          </div>
+        </div>
+        <div class="cred-item" style="transition-delay:.12s">
+          <div class="cred-icon">📝</div>
+          <div>
+            <div class="cred-name">英検 1 級</div>
+            <div class="cred-sub">実用英語技能検定</div>
+          </div>
         </div>
       </div>
-      <div class="cred-item reveal" style="transition-delay:.12s">
-        <div class="cred-icon">📝</div>
-        <div>
-          <div class="cred-name">英検 1 級</div>
-          <div class="cred-sub">実用英語技能検定</div>
+    </div>
+    <div class="cred-subsection reveal" style="transition-delay:.1s">
+      <div class="cred-subsection-label">専門領域</div>
+      <div class="cred-grid">
+        <div class="cred-item" style="transition-delay:.19s">
+          <div class="cred-icon">💼</div>
+          <div>
+            <div class="cred-name">事業投資</div>
+            <div class="cred-sub">M&A / PE / VC</div>
+          </div>
         </div>
-      </div>
-      <div class="cred-item reveal" style="transition-delay:.19s">
-        <div class="cred-icon">💼</div>
-        <div>
-          <div class="cred-name">事業投資</div>
-          <div class="cred-sub">M&A / PE / VC</div>
-        </div>
-      </div>
-      <div class="cred-item reveal" style="transition-delay:.26s">
-        <div class="cred-icon">⚖️</div>
-        <div>
-          <div class="cred-name">財務・法務・税務</div>
-          <div class="cred-sub">横断的統合知識</div>
+        <div class="cred-item" style="transition-delay:.26s">
+          <div class="cred-icon">⚖️</div>
+          <div>
+            <div class="cred-name">財務・法務・税務</div>
+            <div class="cred-sub">横断的統合知識</div>
+          </div>
         </div>
       </div>
     </div>
