@@ -14,7 +14,7 @@
       --accent:  #5b52e8;
       --accent2: #7c6af0;
       --text:    #1a1a2e;
-      --muted:   #6b6b88;
+      --muted:   #53536b;
       --border:  rgba(91,82,232,.16);
       --radius:  12px;
       --ff:      'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
@@ -117,7 +117,7 @@
     .post-card.placeholder .post-title { color: var(--muted); }
 
     /* ─── Fade in ─── */
-    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in { opacity: 1; }
     .fade-in.visible { opacity: 1; transform: none; }
 
     /* ─── Footer ─── */
@@ -135,6 +135,8 @@
       .post-card { padding: 1.4rem; }
       .post-reading-time { margin-left: 0; }
     }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+    @media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
   </style>
 </head>
 <body>
@@ -142,21 +144,21 @@
 <nav>
   <a href="../index.html" class="nav-logo">D.N.</a>
   <div class="nav-breadcrumb">
-    <a href="../index.html">Portfolio</a>
+    <a href="../index.html">ポートフォリオ</a>
     <span class="sep">/</span>
-    <span class="current">Blog</span>
+    <span class="current">ブログ</span>
   </div>
 </nav>
 
 <header class="blog-hero">
   <div class="blog-hero-label">Writing</div>
-  <h1>Blog</h1>
+  <h1>ブログ</h1>
   <p>事業投資・M&A・戦略・組織に関する考察</p>
 </header>
 
 <main>
   <div class="container">
-    <div class="section-label">All Posts</div>
+    <div class="section-label">公開記事</div>
     <div class="post-list">
 
       <!-- ─ 記事はここに追加していく ─ -->
@@ -172,21 +174,9 @@
         <span class="post-link">続きを読む →</span>
       </a>
 
-      <div class="post-card placeholder fade-in">
-        <div class="post-meta">
-          <span class="post-date">Coming Soon</span>
-          <span class="post-category">M&A</span>
-        </div>
-        <div class="post-title">次の記事を準備中...</div>
-      </div>
 
-      <div class="post-card placeholder fade-in">
-        <div class="post-meta">
-          <span class="post-date">Coming Soon</span>
-          <span class="post-category">戦略</span>
-        </div>
-        <div class="post-title">次の記事を準備中...</div>
-      </div>
+
+
 
     </div>
   </div>
